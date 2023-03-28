@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
+  error = "";
   constructor(private _authService: AuthService,private  _Router: Router){}
   loginForm = new FormGroup({
     email: new FormControl(null, [Validators.email, Validators.required]),
@@ -19,10 +19,24 @@ export class LoginComponent {
   submitForm(LoginData: FormGroup)
   {
 
-    this._authService.login(LoginData).subscribe((response)=>{
+    this._authService.login(LoginData.value).subscribe((response)=>{
 
+
+
+      if (response.Massege === "Success")
+      {
+        localStorage.setItem("userToken", response.token);
+        this._authService.saveUser();
+        this._Router.navigate(["/home"]);
+
+      }
+      else
+      {
+        this.error = response.Massege;
+        console.log(this.error);
+      }
       
-      this._Router.navigate(["/home"]);
+      
 
       console.log(response);
     })

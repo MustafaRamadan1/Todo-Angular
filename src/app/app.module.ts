@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule}   from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 @NgModule({
 
   declarations: [
@@ -23,6 +24,7 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     NotFoundComponent,
     LoginComponent,
+    LogoutComponent,
     
     
     ]

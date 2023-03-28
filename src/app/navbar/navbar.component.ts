@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,5 +7,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+
+  isLogin: boolean = false;
+  
+    constructor(private _authService: AuthService)
+    {
+      
+      this._authService.CurrentUser.subscribe(()=>{
+      if (_authService.CurrentUser.getValue != null)
+      {
+
+        this.isLogin = true;
+      }
+      else 
+      {
+
+        this.isLogin = false;
+      }
+      });
+      
+
+    }
+
+    
+    
+  
 
 }
