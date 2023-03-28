@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 export class RegisterComponent {
 
 
-  constructor(private _AuthService: AuthService , private _Router:Router){}
+  constructor(private _AuthService: AuthService , public _Router:Router){}
 
     error: string = "";
     registerFrom  = new FormGroup({
@@ -24,18 +24,25 @@ export class RegisterComponent {
 
   submitRegisterForm(FormDetails: FormGroup)
   {
+    console.log("Submit");
     this._AuthService.register(FormDetails.value).subscribe((response)=>{
-      // if (response.message === "success")
-      // {
-      //   this._Router.navigate(['/login'])
-      // }
+      if (response.Massege === "Success")
+      {
+        this._Router.navigate(['/login'])
+      }
      
+      else
+      {
+        this.error = response.error;
+      }
+      
+      
+      // this._Router.navigate(['/login'])
 
-      // console.log(response)
-      this._Router.navigate(['/login'])
-
-      console.log(response)
-    })
+      console.log(this.error);
+    } , (error:Error)=>{console.log(error.message)}, ()=>{console.log("Done")})
   }
+
+
 
 }

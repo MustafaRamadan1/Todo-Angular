@@ -1,6 +1,5 @@
 
 
-
 <div class="w-75 m-auto py-5">
 
   <div *ngIf="error" class="alert alert-danger">
@@ -41,7 +40,7 @@
       <input
         formControlName="age"
         class="form-control"
-        type="text"
+        type="number"
         id="age"
       />
 
@@ -73,7 +72,7 @@
         type="text"
         id="password"
       />
-
+      
       <div *ngIf="registerFrom.get('password')?.errors != null && registerFrom.get('password')?.touched === true" class="alert my-2 alert-danger">
         <p *ngIf="registerFrom.get('password')?.errors?.['required']">First Name should be required</p>
       </div>
