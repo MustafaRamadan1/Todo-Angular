@@ -16,6 +16,7 @@ export class LoginComponent {
     password: new FormControl(null, [Validators.required])
   })
 
+  
   submitForm(LoginData: FormGroup)
   {
 
@@ -36,6 +37,8 @@ export class LoginComponent {
         console.log(this.error);
       }
       
+
+
       
 
       console.log(response);

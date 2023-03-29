@@ -1,0 +1,97 @@
+$color_1: white;
+$font-family_1: Arial, Helvetica, sans-serif;
+$background-color_1: #eee;
+$background-color_2: #f44336;
+$background-color_3: white;
+$background-color_4: #f7f7f7;
+$background-color_5: red;
+
+body {
+	font-family: $font-family_1;
+}
+.container {
+	width: 500px;
+	margin: 20px auto;
+}
+.form {
+	background-color: $background-color_1;
+	border-radius: 6px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+}
+.input {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	flex: 1;
+	&:focus {
+		outline: none;
+	}
+}
+.add {
+	&:focus {
+		outline: none;
+	}
+	border: none;
+	background-color: $background-color_2;
+	color: $color_1;
+	padding: 10px;
+	border-radius: 6px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+.tasks {
+	background-color: $background-color_1;
+	margin-top: 20px;
+	border-radius: 6px;
+	padding: 20px;
+	.task {
+		background-color: $background-color_3;
+		padding: 10px;
+		border-radius: 6px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		transition: 0.3s;
+		cursor: pointer;
+		border: 1px solid #ccc;
+		&:not(:last-child) {
+			margin-bottom: 15px;
+		}
+		&:hover {
+			background-color: $background-color_4;
+		}
+		span {
+			font-weight: bold;
+			font-size: 10px;
+			background-color: $background-color_5;
+			color: $color_1;
+			padding: 2px 6px;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	}
+	.task.done {
+		opacity: 0.5;
+		position: relative;
+	}
+}
+.task.done {
+	&::after {
+		position: absolute;
+		content: "";
+	}
+}
+.delete-all {
+	width: calc(100% - 25px);
+	margin: auto;
+	padding: 12px;
+	text-align: center;
+	font-size: 14px;
+	color: $color_1;
+	background-color: $background-color_2;
+	margin-top: 20px;
+	cursor: pointer;
+	border-radius: 4px;
+}

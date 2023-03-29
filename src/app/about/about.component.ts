@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, EventEmitter, Output } from '@angular/core';
+import { HomeComponent } from '../home/home.component';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AboutComponent {
 
+  @Output()
+
+  ourFav = new EventEmitter();
+
+  constructor(){}
+
+
+  ourFavResualt()
+  {
+    this.ourFav.emit
+  }
+
+  
 }

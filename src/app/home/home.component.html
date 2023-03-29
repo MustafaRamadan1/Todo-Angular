@@ -1,0 +1,18 @@
+<div>
+
+</div>
+
+
+<div class="container">
+    <div class="form">
+        <input [(ngModel)]="ourData" type="text" class="input" />
+        <input (click)="add()" type="submit" class="add" value="Add Task" />
+    </div>
+    <div *ngFor="let x of array;let i = index" class="tasks">
+        <h3>{{x}}</h3>
+        <input (click)="delete(i)" type="button" value="delete">
+        <input (click)="fav(i)" type="button" value="fav">
+        <input (click)="delete(i)" type="button" value="completed">
+
+    </div>
+    </div>

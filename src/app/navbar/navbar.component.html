@@ -32,7 +32,7 @@
         </li>
 
         <li class="nav-item active">
-          <a *ngIf="isLogin" class="nav-link" routerLink="logout">Logout <span class="sr-only">(current)</span></a>
+          <a *ngIf="isLogin" class="nav-link" routerLink="logout" (click)="islogout()" >Logout <span class="sr-only">(current)</span></a>
         </li>
         </ul>
         

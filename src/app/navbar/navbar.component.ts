@@ -12,12 +12,20 @@ export class NavbarComponent {
   
     constructor(private _authService: AuthService)
     {
-      
+
+      console.log(this.isLogin);
       this._authService.CurrentUser.subscribe(()=>{
+
       if (_authService.CurrentUser.getValue != null)
       {
 
         this.isLogin = true;
+
+        if (localStorage.length  === 0)
+        {
+          this.isLogin = false;
+        }
+
       }
       else 
       {
@@ -30,7 +38,10 @@ export class NavbarComponent {
     }
 
     
-    
+    islogout()
+    {
+      this._authService.logout();
+    }
   
 
 }

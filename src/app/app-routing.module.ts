@@ -10,9 +10,9 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  {path:"", redirectTo:"register", pathMatch:"full"},
+  {path:"", redirectTo:"home", pathMatch:"full"},
   {path:"home"  , canActivate:[AuthGuard], component:HomeComponent}, 
-  {path:"about" , canActivate:[AuthGuard] ,component:AboutComponent}, 
+  {path:"about" ,component:AboutComponent}, 
   {path:"network" , canActivate:[AuthGuard],component:NetworkComponent},
   {path:"register" , canActivate:[AuthGuard],component:RegisterComponent},
   {path: "login", component:LoginComponent},

@@ -16,10 +16,12 @@ export class AuthGuard implements CanActivate {
         if(this._authService.CurrentUser.getValue != null)
         {
           return true;
+          
         }
 
         else
         { 
+          console.log(this._authService.CurrentUser.getValue());
           this._Router.navigate(["/login"]);
           return false;
         }
